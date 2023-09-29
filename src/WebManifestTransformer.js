@@ -43,7 +43,7 @@ const MANIFEST_SCHEMA: SchemaEntity = {
 };
 
 export default (new Transformer({
-  async transform({asset}) {
+  async transform({ asset, options: { env } }) {
     const source = await asset.getCode();
     const {data, pointers} = parse(source);
 
@@ -93,7 +93,12 @@ export default (new Transformer({
     }
 
     asset.type = 'webmanifest';
-    asset.setCode(JSON.stringify(data));
+    let json_string = JSON.stringify(data)
+    const result = json_string.replace(/{{{ ([^}]+) }}}/g, (match, envKey) => {
+        asset.invalidateOnEnvChange(envKey);
+        return env[envKey] === undefined ? match : env[envKey];
+    });
+    asset.setCode(result);
     return [asset];
   },
 }): Transformer);

@@ -1,6 +1,6 @@
 {
-    "name": "@blakerutledge/transformer-webmanifest",
-    "version": "2.9.3",
+    "name": "@blakerutledge/parcel-transformer-webmanifest",
+    "version": "2.9.4",
     "license": "MIT",
     "publishConfig": {
         "access": "public"
@@ -11,7 +11,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/blakerutledge/transformer-webmanifest.git"
+        "url": "git+https://github.com/blakerutledge/transformer-webmanifest.git"
     },
     "main": "lib/WebManifestTransformer.js",
     "source": "src/WebManifestTransformer.js",
@@ -23,5 +23,18 @@
         "@parcel/diagnostic": "2.9.3",
         "@parcel/plugin": "2.9.3",
         "@parcel/utils": "2.9.3"
-    }
+    },
+    "bugs": {
+        "url": "https://github.com/blakerutledge/transformer-webmanifest/issues"
+    },
+    "homepage": "https://github.com/blakerutledge/transformer-webmanifest#readme",
+    "directories": {
+        "lib": "lib"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "description": ""
 }
